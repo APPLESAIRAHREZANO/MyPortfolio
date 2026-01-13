@@ -1,4 +1,4 @@
-// ===== NAVIGATION =====
+
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.section');
 
@@ -23,7 +23,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ===== THEME TOGGLE =====
+
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.querySelector('.theme-icon');
 
@@ -46,7 +46,7 @@ themeToggle.addEventListener('click', () => {
     }, 200);
 });
 
-// ===== TYPING ANIMATION =====
+
 const typingText = document.querySelector('.typing-text');
 if (typingText) {
     const text = 'Building digital experiences that matter.';
@@ -70,7 +70,7 @@ if (typingText) {
     setTimeout(typeWriter, 1000);
 }
 
-// ===== CTA BUTTONS =====
+
 const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
 ctaButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -83,7 +83,7 @@ ctaButtons.forEach(btn => {
     });
 });
 
-// ===== STATS COUNTER =====
+
 function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
@@ -109,7 +109,7 @@ function animateStats() {
     });
 }
 
-// ===== SKILLS ANIMATION =====
+
 function animateSkills() {
     const skillBars = document.querySelectorAll('.skill-progress');
     
@@ -119,7 +119,6 @@ function animateSkills() {
     });
 }
 
-// ===== DOWNLOAD CV =====
 const downloadCvBtn = document.querySelector('.download-cv');
 if (downloadCvBtn) {
     downloadCvBtn.addEventListener('click', () => {
@@ -128,7 +127,7 @@ if (downloadCvBtn) {
     });
 }
 
-// ===== PROJECT CARDS =====
+
 const workCards = document.querySelectorAll('.work-card');
 const projectData = [
     {
@@ -308,7 +307,7 @@ function showProjectModal(project) {
     });
 }
 
-// ===== TECH TAGS =====
+
 const techTags = document.querySelectorAll('.tech-tag');
 let selectedTags = new Set();
 
@@ -330,7 +329,7 @@ techTags.forEach(tag => {
     });
 });
 
-// ===== CONTACT FORM =====
+
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -362,7 +361,7 @@ if (contactForm) {
     });
 }
 
-// ===== NOTIFICATION =====
+
 function showNotification(type, message) {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -419,7 +418,7 @@ function showNotification(type, message) {
     }, 3000);
 }
 
-// ===== SOCIAL LINKS =====
+
 const socialLinks = document.querySelectorAll('.social-link');
 socialLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -429,7 +428,7 @@ socialLinks.forEach(link => {
     });
 });
 
-// ===== SCROLL ANIMATIONS =====
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -447,7 +446,7 @@ cards.forEach(card => {
     observer.observe(card);
 });
 
-// ===== PROFILE IMAGE =====
+
 const profileImage = document.querySelector('.profile-placeholder');
 if (profileImage) {
     profileImage.addEventListener('click', () => {
@@ -458,7 +457,7 @@ if (profileImage) {
     });
 }
 
-// ===== KEYBOARD NAVIGATION =====
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         const current = document.querySelector('.nav-link.active');

@@ -1,4 +1,4 @@
-/* CSS Variables */
+
 :root {
     --primary-color: #6366f1;
     --secondary-color: #8b5cf6;
@@ -38,7 +38,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Side Navigation */
+
 .sidenav {
     position: fixed;
     left: 0;
@@ -134,7 +134,7 @@ body {
     font-size: 1.5rem;
 }
 
-/* Main Content */
+
 .main-content {
     margin-left: 80px;
     min-height: 100vh;
@@ -162,7 +162,7 @@ body {
     }
 }
 
-/* Home Section */
+
 .home-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -233,7 +233,7 @@ body {
     width: 100%;
 }
 
-/* Floating Cards */
+
 .home-visual {
     position: relative;
     height: 500px;
@@ -281,7 +281,7 @@ body {
     color: var(--text-light);
 }
 
-/* Section Header */
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -301,7 +301,7 @@ body {
     border-radius: 2px;
 }
 
-/* About Section */
+
 .about-intro {
     max-width: 1200px;
     margin: 0 auto 5rem;
@@ -386,7 +386,7 @@ body {
     display: inline-block;
 }
 
-/* Service Cards */
+
 .about-grid {
     max-width: 1200px;
     margin: 0 auto 4rem;
@@ -446,7 +446,7 @@ body {
     font-weight: bold;
 }
 
-/* Skills Section */
+
 .skills-section {
     max-width: 1200px;
     margin: 0 auto 5rem;
@@ -541,7 +541,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* Timeline Section */
+
 .timeline-section {
     max-width: 900px;
     margin: 5rem auto 0;
@@ -624,7 +624,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Work Section */
+
 .work-grid {
     max-width: 1200px;
     margin: 0 auto;
@@ -722,7 +722,7 @@ body {
     color: var(--text-light);
 }
 
-/* Contact Section */
+
 .contact-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -782,7 +782,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* Contact Form */
+
 .contact-form {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -823,7 +823,7 @@ body {
     resize: vertical;
 }
 
-/* Responsive */
+
 @media (max-width: 968px) {
     .home-container,
     .contact-container,
