@@ -17,8 +17,63 @@ navLinks.forEach(link => {
         document.getElementById(targetSection).classList.add('active');
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Trigger animations for About section
+        if (targetSection === 'about') {
+            setTimeout(animateStats, 300);
+            setTimeout(animateSkills, 500);
+        }
     });
 });
+
+// ===== STATS COUNTER ANIMATION =====
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                stat.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                stat.textContent = target + '+';
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// ===== SKILLS BAR ANIMATION =====
+function animateSkills() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    skillBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.width = progress + '%';
+    });
+}
+
+// ===== DOWNLOAD CV BUTTON =====
+const downloadCvBtn = document.querySelector('.download-cv');
+if (downloadCvBtn) {
+    downloadCvBtn.addEventListener('click', () => {
+        // Create a dummy CV download
+        showNotification('success', 'CV download started! Check your downloads folder.');
+        
+        // Simulate download
+        console.log('Downloading CV...');
+        
+        // In real implementation, this would be:
+        // window.location.href = 'path/to/your/cv.pdf';
+    });
+}
 
 // ===== THEME TOGGLE =====
 const themeToggle = document.getElementById('themeToggle');
@@ -401,13 +456,25 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-const cards = document.querySelectorAll('.about-card, .work-card');
+const cards = document.querySelectorAll('.about-card, .work-card, .timeline-item');
 cards.forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'all 0.6s ease';
     observer.observe(card);
 });
+
+// Profile image animation
+const profileImage = document.querySelector('.profile-placeholder');
+if (profileImage) {
+    observer.observe(profileImage);
+    profileImage.addEventListener('click', () => {
+        profileImage.style.transform = 'scale(1.1) rotate(5deg)';
+        setTimeout(() => {
+            profileImage.style.transform = 'scale(1) rotate(0deg)';
+        }, 300);
+    });
+}
 
 // ===== KEYBOARD NAVIGATION =====
 document.addEventListener('keydown', (e) => {
