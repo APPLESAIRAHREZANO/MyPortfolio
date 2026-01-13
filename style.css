@@ -24,7 +24,6 @@
     --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -145,12 +144,11 @@ body {
     min-height: 100vh;
     padding: 4rem 2rem;
     display: none;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
 }
 
 .section.active {
     display: block;
+    animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -269,12 +267,8 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 .card-content h3 {
@@ -332,6 +326,7 @@ body {
     justify-content: center;
     box-shadow: var(--shadow-lg);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .profile-placeholder:hover {
@@ -391,6 +386,7 @@ body {
     display: inline-block;
 }
 
+/* Service Cards */
 .about-grid {
     max-width: 1200px;
     margin: 0 auto 4rem;
@@ -825,11 +821,6 @@ body {
 
 .form-group textarea {
     resize: vertical;
-}
-
-.form-group input.error,
-.form-group textarea.error {
-    border-color: var(--accent-color);
 }
 
 /* Responsive */
