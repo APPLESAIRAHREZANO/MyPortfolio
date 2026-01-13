@@ -1,4 +1,4 @@
-// ===== NAVIGATION FUNCTIONALITY =====
+// ===== NAVIGATION =====
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.section');
 
@@ -6,11 +6,9 @@ navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Remove active from all
         navLinks.forEach(l => l.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
         
-        // Add active to clicked
         link.classList.add('active');
         
         const targetSection = link.getAttribute('data-section');
@@ -18,62 +16,12 @@ navLinks.forEach(link => {
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
-        // Trigger animations for About section
         if (targetSection === 'about') {
             setTimeout(animateStats, 300);
             setTimeout(animateSkills, 500);
         }
     });
 });
-
-// ===== STATS COUNTER ANIMATION =====
-function animateStats() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    statNumbers.forEach(stat => {
-        const target = parseInt(stat.getAttribute('data-target'));
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-        
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                stat.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                stat.textContent = target + '+';
-            }
-        };
-        
-        updateCounter();
-    });
-}
-
-// ===== SKILLS BAR ANIMATION =====
-function animateSkills() {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    skillBars.forEach(bar => {
-        const progress = bar.getAttribute('data-progress');
-        bar.style.width = progress + '%';
-    });
-}
-
-// ===== DOWNLOAD CV BUTTON =====
-const downloadCvBtn = document.querySelector('.download-cv');
-if (downloadCvBtn) {
-    downloadCvBtn.addEventListener('click', () => {
-        // Create a dummy CV download
-        showNotification('success', 'CV download started! Check your downloads folder.');
-        
-        // Simulate download
-        console.log('Downloading CV...');
-        
-        // In real implementation, this would be:
-        // window.location.href = 'path/to/your/cv.pdf';
-    });
-}
 
 // ===== THEME TOGGLE =====
 const themeToggle = document.getElementById('themeToggle');
@@ -134,6 +82,51 @@ ctaButtons.forEach(btn => {
         }
     });
 });
+
+// ===== STATS COUNTER =====
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        stat.textContent = '0';
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                stat.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                stat.textContent = target + '+';
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// ===== SKILLS ANIMATION =====
+function animateSkills() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    skillBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.width = progress + '%';
+    });
+}
+
+// ===== DOWNLOAD CV =====
+const downloadCvBtn = document.querySelector('.download-cv');
+if (downloadCvBtn) {
+    downloadCvBtn.addEventListener('click', () => {
+        showNotification('success', 'CV download started! Check your downloads folder.');
+        console.log('Downloading CV...');
+    });
+}
 
 // ===== PROJECT CARDS =====
 const workCards = document.querySelectorAll('.work-card');
@@ -367,19 +360,9 @@ if (contactForm) {
             localStorage.setItem('contactMessages', JSON.stringify(messages));
         }, 1500);
     });
-    
-    const formInputs = contactForm.querySelectorAll('input, textarea');
-    formInputs.forEach(input => {
-        input.addEventListener('focus', () => {
-            input.style.transform = 'scale(1.02)';
-        });
-        
-        input.addEventListener('blur', () => {
-            input.style.transform = 'scale(1)';
-        });
-    });
 }
 
+// ===== NOTIFICATION =====
 function showNotification(type, message) {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -464,10 +447,9 @@ cards.forEach(card => {
     observer.observe(card);
 });
 
-// Profile image animation
+// ===== PROFILE IMAGE =====
 const profileImage = document.querySelector('.profile-placeholder');
 if (profileImage) {
-    observer.observe(profileImage);
     profileImage.addEventListener('click', () => {
         profileImage.style.transform = 'scale(1.1) rotate(5deg)';
         setTimeout(() => {
@@ -492,5 +474,5 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-console.log('🚀 Portfolio loaded successfully!');
-console.log('💡 Tip: Use arrow keys to navigate sections');
+console.log('🚀 Portfolio fully loaded!');
+console.log('💡 Click About to see animations!');
