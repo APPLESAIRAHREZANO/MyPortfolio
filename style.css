@@ -310,10 +310,12 @@ body {
     gap: 4rem;
     align-items: center;
 }
-
-.profile-image {
-    width: 300px;
-    height: 300px;
+.profile-logo {
+    width: 250px;       /* adjust size as needed */
+    height: 350px;
+    border-radius: 0;   /* no circle, perfect rectangle */
+    object-fit: contain; /* ensures logo fits inside box */
+    border: 2px solid #9409fe; /* optional border */
 }
 
 .profile-placeholder {
@@ -916,4 +918,5 @@ body {
     .timeline-dot {
         left: -2rem;
     }
+    
 }
